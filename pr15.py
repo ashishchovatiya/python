@@ -1,0 +1,7 @@
+ash = input("Enter the list: ").split()
+print(ash[::3])
+print(ash[::-1])
+print(ash[0:4:-1])
+print(ash[:-7])
+print(ash[:2])
+print(ash[2:])
