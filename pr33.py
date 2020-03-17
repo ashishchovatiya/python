@@ -1,15 +1,29 @@
-def arr(q, s):
-    l = len(q) // 2
-    if s < q[l]:
-        p = arr(q[:l], s)
-    elif s > q[l]:
-        p = arr(q[l:], s) + l
-    elif s == q[l]:
-        return l + 1
-    return p
+def binary(sorted_list, length, key):
+    start = 0
+    end = length - 1
+    while start <= end:
+        mid = int((start + end) / 2)
+        if key == sorted_list[mid]:
+            print("\nEntered number %d is present at position: %d" % (key, mid))
+            return -1
+        elif key < sorted_list[mid]:
+            end = mid - 1
+        elif key > sorted_list[mid]:
+            start = mid + 1
+    print("\nElement not found!")
+    return -1
 
+lst = []
 
-l1 = [1, 23, 34, 45, 56, 67, 78, 89, 98, 100]
-print(l1)
-s = int(input("enter the search number="))
-print(arr(l1, s))
+size = int(input("Enter size of list: \t"))
+
+for n in range(size):
+    numbers = int(input("Enter any number: \t"))
+    lst.append(numbers)
+
+lst.sort()
+print('\n\nThe list will be sorted, the sorted list is:', lst)
+
+x = int(input("\nEnter the number to search: "))
+
+binary(lst, size, x)
